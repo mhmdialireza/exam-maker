@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
             // if (!isset($e->status))
                 return response()->json($e->getMessage(), $e->status ?? 500);
             // else
-            //     dd($e->getMessage());
+                // dd($e->getMessage());
         });
     }
 }

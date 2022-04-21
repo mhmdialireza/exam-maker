@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\UserRepositoryInterface;
-use App\Repositories\Eloquent\EloquentUserRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Eloquent\EloquentUserRepository;
+use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\Eloquent\EloquentCategoryRepository;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,8 +33,7 @@ class AppServiceProvider extends ServiceProvider
     private function injectedClasses()
     {
         $this->app->singleton(UserRepositoryInterface::class, EloquentUserRepository::class);
-        //$this->app->singleton(UserRepositoryInterface::class, EloquentUserRepository::class);
-        //$this->app->singleton(UserRepositoryInterface::class, EloquentUserRepository::class);
-        //$this->app->singleton(UserRepositoryInterface::class, EloquentUserRepository::class);
+
+        $this->app->singleton(CategoryRepositoryInterface::class, EloquentCategoryRepository::class);
     }
 }

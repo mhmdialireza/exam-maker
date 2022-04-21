@@ -11,7 +11,6 @@ class UserEloquentEntity implements UserEntity
     public function __construct(User $user)
     {
         $this->user = $user;
-        // dd($this);
     }
 
     public function getId(): int

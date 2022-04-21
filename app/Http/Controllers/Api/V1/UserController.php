@@ -22,9 +22,8 @@ class UserController extends ApiController
 
     public function index(IndexRequest $request)
     {
-        // dd($request->all());
         $users = $this->userRepository->paginate($request->search, $request->page, $request->pagesize ?? 20, ['full_name', 'mobile', 'email']);
-        // dd($users);
+        
         return $this->respondSuccess('کابران', $users);
     }
 
