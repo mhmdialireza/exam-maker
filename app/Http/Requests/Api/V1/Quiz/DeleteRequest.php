@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Category;
+namespace App\Http\Requests\Api\V1\Quiz;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,7 +27,7 @@ class DeleteRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|int|exists:categories',
+            'id' => 'exists:quizzes'
         ];
     }
 }

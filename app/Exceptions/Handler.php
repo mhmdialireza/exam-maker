@@ -47,10 +47,10 @@ class Handler extends ExceptionHandler
             //
         });
         $this->renderable(function (Throwable $e) {
-            // if (!isset($e->status))
+//             if (!isset($e->status))
                 return response()->json($e->getMessage(), $e->status ?? 500);
-            // else
-                // dd($e->getMessage());
+//             else
+//                 dd($e->getMessage());
         });
     }
 }

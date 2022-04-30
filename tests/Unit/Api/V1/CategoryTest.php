@@ -38,7 +38,7 @@ class CategoryTest extends TestCase
         $response = $this->call('DELETE', 'api/v1/categories', [
             'id' => (string)$category->getId(),
         ]);
-        
+
         $this->assertEquals(200, $response->status());
         $response->assertJsonStructure([
             'success',
@@ -58,7 +58,7 @@ class CategoryTest extends TestCase
         ];
 
         $response = $this->call('PUT', 'api/v1/categories', $categoryData);
-        
+
         $this->assertEquals(200, $response->status());
         $this->assertDatabaseHas('categories', $categoryData);
         $response->assertJsonStructure([
@@ -81,9 +81,9 @@ class CategoryTest extends TestCase
             'page' => 1,
             'pagesize' => $pagesize,
         ]);
-        
+
         $data = json_decode($response->getContent(), true);
-        
+
         $this->assertEquals($pagesize, count($data['data']));
         $this->assertEquals(200, $response->status());
         $response->assertJsonStructure([

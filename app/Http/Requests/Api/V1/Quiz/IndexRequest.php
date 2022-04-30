@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Category;
+namespace App\Http\Requests\Api\V1\Quiz;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property int $id
+ * @property string|null $search
+ * @property int $page
+ * @property int $page_size
  */
-class DeleteRequest extends FormRequest
+class IndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +29,9 @@ class DeleteRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|int|exists:categories',
+            'search' => 'nullable|string',
+            'page' => 'required|numeric',
+            'page_size' => 'nullable|numeric',
         ];
     }
 }

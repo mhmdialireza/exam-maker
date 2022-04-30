@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Eloquent\EloquentQuizRepository;
 use App\Repositories\Eloquent\EloquentUserRepository;
+use App\Repositories\Contracts\QuizRepositoryInterface;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\EloquentCategoryRepository;
 use App\Repositories\Contracts\CategoryRepositoryInterface;
@@ -35,5 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UserRepositoryInterface::class, EloquentUserRepository::class);
 
         $this->app->singleton(CategoryRepositoryInterface::class, EloquentCategoryRepository::class);
+
+        $this->app->singleton(QuizRepositoryInterface::class, EloquentQuizRepository::class);
     }
 }
